@@ -39,21 +39,32 @@ canvas{position:fixed;inset:0;width:100%;height:100%}
 <div id="top">Chúc mừng 20/10</div>
 <div id="tools"><button id="mus" aria-label="Bật hoặc tắt nhạc">🔈</button><label title="Chọn bài hát của bạn">📁<input id="file" type="file" accept="audio/*" hidden></label></div>
 <div id="wish"><div class="to">Gửi Thanh Hân 💗</div><p id="txt"></p><div id="hint">✨ chạm vào màn hình để nhận thêm lời chúc ✨</div><div id="cnt"></div></div>
-<div id="intro"><div class="big">💌</div><h1>Gửi Thanh Hân</h1><p>Có một điều bất ngờ nhỏ nhân ngày 20/10, anh dành riêng cho em.</p><button id="open">Mở thiệp 💗</button></div>
+<div id="intro"><div class="big">💌</div><h1>Gửi Thanh Hân</h1><p>Có một điều bất ngờ nhỏ nhân ngày 20/10, dành riêng cho Thanh Hân 🐳.</p><button id="open">Mở thiệp 💗</button></div>
 <script>
 const $=s=>document.querySelector(s),rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.random()*a.length|0];
 // ===== Sửa lời chúc ở đây =====
 const WISHES=[
- "Chúc Thanh Hân 20/10 luôn khỏe mạnh, ăn ngon, ngủ ngon, ngày nào cũng tràn đầy năng lượng nhé!",
- "Chúc em lúc nào cũng xinh tươi, tóc đẹp, da đẹp, chụp tấm nào cũng ưng tấm đó 📸",
- "Mong em gặp toàn chuyện vui, đi đâu cũng thuận lợi, làm gì cũng suôn sẻ 🍀",
- "Chúc em cười nhiều hơn lo, vui nhiều hơn mệt, ngày nào cũng có chuyện hay để kể 😄",
- "Mong những điều em đang mong sẽ dần thành hiện thực, còn những chuyện không vui thì nhanh chóng qua đi.",
- "Chúc cô gái Thanh Hân luôn rạng rỡ, gặp người tốt, nhận tin vui và có thật nhiều dịp để tự thưởng cho mình 💗",
- "Tóm lại là: khỏe mạnh, xinh đẹp, may mắn, vui vẻ. Bốn điều này, em nhớ nhận đủ nhé!",
- "🎉 KHOAN! Lời chúc cuối cùng đây...",
- "Chúc em luôn vui theo cách của riêng mình. Còn món quà đặc biệt hôm nay là: một màn pháo hoa dành riêng cho em! Chạm thêm lần nữa để nhận bất ngờ cuối nhé ✨",
- "💥 CHÚC MỪNG 20/10, THANH HÂN! Hết lời chúc rồi, nhưng mong niềm vui của em còn kéo dài thật lâu. Chốt đơn: xinh đẹp + may mắn + thật nhiều tiếng cười! 💗🎉"
+"Chúc Thanh Hân 20/10 luôn khỏe mạnh, ăn ngon, ngủ ngon, ngày nào cũng tràn đầy năng lượng và gặp nhiều điều vui nhé! 🌷",
+
+"Chúc Thanh Hân lúc nào cũng xinh tươi, da đẹp, tóc đẹp, cười một cái là thấy cả ngày tươi sáng :)) 💗",
+
+"Chúc đi đâu cũng gặp may, làm gì cũng thuận lợi, dự định nào cũng dần thành công nhé! 🍀",
+
+"Mong những ngày của Thanh Hân có thật nhiều tiếng cười, ít chuyện phải lo, gặp toàn điều dễ chịu và luôn có lý do để vui 😄",
+
+"Những điều Thanh Hân đang mong chờ, hy vọng sẽ sớm thành hiện thực. Những điều tốt đẹp nhất rồi sẽ đến đúng lúc! ✨",
+
+"Chúc Thanh Hân luôn rạng rỡ, gặp người tử tế, được yêu quý và có thật nhiều dịp tự thưởng cho bản thân những điều mình thích 💗",
+
+"Tổng kết lại nhé: sức khỏe phải có, xinh đẹp phải giữ, may mắn phải đầy, niềm vui phải nhiều. Chúc đủ cả bốn, không thiếu món nào! 🎁",
+
+"🎉 Khoan đã! Đừng vội thoát, lời chúc đặc biệt nhất vẫn còn ở phía trước!",
+
+"Chúc Thanh Hân luôn vui vẻ, tự tin, thích gì làm nấy, muốn gì phấn đấu nấy. Mong mỗi ngày đều có chuyện đáng nhớ và mỗi năm lại có thêm nhiều điều đáng tự hào! 💐",
+
+"✨ Và bây giờ... xin dành riêng cho Thanh Hân một màn pháo hoa đặc biệt! Không cần ước gì lớn lao, chỉ mong những điều may mắn, vui vẻ và tốt đẹp sẽ luôn đồng hành cùng Thanh Hân. Sẵn sàng chưa? Chạm thêm lần cuối nhé! 🎆",
+
+"💥 CHÚC MỪNG 20/10, THANH HÂN! 🎉 Chúc cá voi Thanh Hân 52Hz một ngày nào đó sẽ gặp được cậu cá voi cùng tần số, để chẳng cần cố gắng vẫn thấu hiểu nhau, chẳng cần tìm kiếm vẫn nhận ra nhau giữa đại dương rộng lớn. 🐳💙"
 ];
 const PINKS=['#ff8fab','#ff6b8b','#ffb3c6','#ff9db8','#f4a0b5','#ffc2d1','#ff7a93','#e85d7f','#ffd1dc','#fb6f92','#ff5d7d','#f78fb3'];
 const FL=['#ffffff','#ffe3ec','#ffc9d9','#ffb3c8','#fff0f5'],FP=['#ffb3c8','#ff9db8','#ffc9d9','#ffffff','#ff8fab'];
@@ -150,11 +161,23 @@ ML=[[76,0,72,0,74,0,72,0],[72,0,76,0,74,0,72,0],[69,0,72,0,77,0,76,0],[74,0,71,0
 function tone(m,t,d,v,type){const o=ac.createOscillator(),g=ac.createGain();o.type=type||'sine';o.frequency.value=hz(m);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mg);o.start(t);o.stop(t+d+.05)}
 function sched(){while(nxt<ac.currentTime+.25){const bar=(step>>3)%4,i=step&7,mel=ML[bar][i];tone(M[bar][AR[i]]+12,nxt,1.1,.09,'triangle');if(mel)tone(mel,nxt,1.6,.12);if(i==0)tone(M[bar][0]-12,nxt,2.6,.12);nxt+=.42;step++}}
 function chime(){if(playing&&!custom&&ac)tone(pick([84,86,88,91,93]),ac.currentTime,1.4,.07)}
-function startMusic(){
- if(custom)custom.play().catch(()=>{});
- else{if(!ac){const A=window.AudioContext||window.webkitAudioContext;if(!A)return;ac=new A();mg=ac.createGain();mg.gain.value=.55;const dl=ac.createDelay(),fb=ac.createGain();dl.delayTime.value=.33;fb.gain.value=.35;mg.connect(ac.destination);mg.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(ac.destination);nxt=ac.currentTime+.1;setInterval(sched,100)}ac.resume()}
- playing=true;$('#mus').textContent='🎶'}
-function stopMusic(){custom?custom.pause():ac&&ac.suspend();playing=false;$('#mus').textContent='🔈'}
+const bgMusic = new Audio("nhac.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.5;
+
+function startMusic() {
+  bgMusic.play().catch(err => {
+    console.log("Chưa phát được nhạc:", err);
+  });
+  playing = true;
+  $('#mus').textContent = '🎶';
+}
+
+function stopMusic() {
+  bgMusic.pause();
+  playing = false;
+  $('#mus').textContent = '🔈';
+}
 $('#mus').onclick=()=>playing?stopMusic():startMusic();
 $('#file').onchange=e=>{const f=e.target.files[0];if(!f)return;ac&&ac.suspend();custom&&custom.pause();custom=new Audio(URL.createObjectURL(f));custom.loop=true;startMusic()};
 $('#open').onclick=()=>{opened=true;startMusic();$('#intro').classList.add('off');setTimeout(()=>tap(W/2,H*.4),300)};
